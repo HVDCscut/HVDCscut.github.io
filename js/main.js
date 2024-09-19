@@ -841,6 +841,18 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }
   }
+  var currentHeaderIndex = 0;
+  const changeHeaderBackground =function () 
+  {
+    const headerBackgrounds = [
+      'url("https://s1.imagehub.cc/images/2024/08/16/b4ba5869fc4c78ac922c20dda933a7eb.jpg")',
+      'url("https://s1.imagehub.cc/images/2024/09/14/f98e8fd2bf7dadadc7345598b50f803a.jpg")',
+
+  ];
+    currentHeaderIndex = (currentHeaderIndex + 1) % headerBackgrounds.length;
+    const headerElement = document.getElementById('page-header');
+    headerElement.style.backgroundImage = headerBackgrounds[currentHeaderIndex];
+  }
 
   window.refreshFn = function () {
     initAdjust()
@@ -875,4 +887,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   refreshFn()
   unRefreshFn()
+  setInterval(changeHeaderBackground, 5000);
 })
